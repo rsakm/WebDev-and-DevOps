@@ -1,4 +1,12 @@
 
+
+![Screenshot 2025-03-06 034520](https://github.com/user-attachments/assets/0b6ae213-71ab-4425-b68e-d28e6ac749c8)
+See the file to take the original view of the .md file
+
+
+
+
+
 Feature	                                      fetch()	                                                                  axios
 
 Default JSON Handling	             ||   ❌ Needs response.json()	                        ||                   ✅ Automatically parses JSON
