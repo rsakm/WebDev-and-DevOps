@@ -1,13 +1,13 @@
 
 Feature	                                      fetch()	                                                                  axios
 
-Default JSON Handling	          ||   ❌ Needs response.json()	                        ||                   ✅ Automatically parses JSON
-Error Handling	                  ||   ❌ Only rejects on network failure	            ||                   ✅ Rejects on HTTP errors (4xx, 5xx)
-Request & Response Interception	  ||   ❌ Not built-in	                                ||                   ✅ Supports interceptors
-Timeout Handling	              ||   ❌ Requires manual setup	                        ||                   ✅ Built-in timeout support
-Request Cancellation	          ||   ❌ Needs AbortController	                        ||                   ✅ Supports cancel tokens
-Automatic Headers	              ||   ❌ Must set headers manually	                    ||                   ✅ Sends correct headers automatically
-Browser Support                   ||   ✅ Native support	                                ||                   ✅ Needs external library
+Default JSON Handling	             ||   ❌ Needs response.json()	                        ||                   ✅ Automatically parses JSON
+Error Handling	                   ||   ❌ Only rejects on network failure	              ||                   ✅ Rejects on HTTP errors (4xx, 5xx)
+Request & Response Interception	   ||   ❌ Not built-in	                                  ||                   ✅ Supports interceptors
+Timeout Handling	                 ||   ❌ Requires manual setup	                        ||                   ✅ Built-in timeout support
+Request Cancellation	             ||   ❌ Needs AbortController	                        ||                   ✅ Supports cancel tokens
+Automatic Headers	                 ||   ❌ Must set headers manually	                    ||                   ✅ Sends correct headers automatically
+Browser Support                    ||   ✅ Native support	                                ||                   ✅ Needs external library
 
 
 
