@@ -18,6 +18,8 @@ const { userModel, purchaseModel, courseModel } = require("../db");
 // Import the JWT User Secret from the configuration file for signing JWT tokens
 const { JWT_USER_PASSWORD } = require("../config");
 
+const {userMiddleware} = require('../middleware/user')
+
 // Import necessary modules for handling JWT, password hashing, and schema validation
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
@@ -135,10 +137,40 @@ userRouter.post("/signin", async function (req, res) {
 });
 
 
-userRouter.get('/purchases',(req,res)=>{
-    
-    
-})
+// Define a GET route for fetching purchases made by the authenticated user
+userRouter.get("/purchases", userMiddleware, async function (req, res) {
+    // Get the userId from the request object set by the userMiddleware
+    const userId = req.userId;
+
+    // Find all purchase records associated with the authenticated userId
+    const purchases = await purchaseModel.find({
+        userId: userId, // Querying purchases by user ID
+    });
+
+    // If no purchases are found, return a 404 error response to the client
+    if (!purchases) {
+        return res.status(404).json({
+            message: "No purchases found", // Error message for no purchases found
+        });
+    }
+
+    // If purchases are found, extract the courseIds from the found purchases
+    const purchasesCourseIds = purchases.map((purchase) => purchase.courseId);
+
+    // Find all course details associated with the courseIds
+    const coursesData = await courseModel.find({
+        _id: { $in: purchasesCourseIds }, // Querying courses using the extracted course IDs
+    });
+
+    // Send the purchases and corresponding course details back to the client
+    res.status(200).json({
+        purchases, // Include purchase data in the response
+        coursesData, // Include course details in the response
+    });
+});
+
+
+
 
 module.exports={
     userRouter: userRouter
