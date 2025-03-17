@@ -2,3 +2,29 @@ You have to create a few standard middlewares for your application.
 You have to create a middleware for logging the number of requests on a server
 You have to create a middleware for rate limiting a users request based on their username passed in the header
 You have to create a middleware for logging the number of errors on a server
+
+
+Notes:
+1. Middleware in Express.js is a function that processes requests and responses in a web application. It sits between the client's request and the server's response, allowing you to modify the request object (req), the response object (res), or end the request-response cycle. Middleware functions can perform a variety of tasks, such as logging, authentication, error handling, and serving static files.
+2. Key Features of Middleware in Express:
+    - Multiple Middleware Functions: You can have multiple middleware functions executed in sequence. Each function has access to the req, res, and next objects.
+    - next() Function: Middleware functions receive a next function that, when called, passes control to the next middleware function in the stack. If next() is not called, the request will not proceed to the next function or route handler.
+    - Request-Response Cycle: Middleware functions are an integral part of the request-response cycle. They can terminate the cycle by sending a response or pass control to the next middleware function.
+
+
+Using middleware
+
+Express is a routing and middleware web framework that has minimal functionality of its own: An Express application is essentially a series of middleware function calls.
+
+Middleware functions are functions that have access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle. The next middleware function is commonly denoted by a variable named next.
+
+Middleware functions can perform the following tasks:
+
+Execute any code.
+Make changes to the request and the response objects.
+End the request-response cycle.
+Call the next middleware function in the stack.
+
+
+Middleware is defined as a layer of software that enables interaction and transmission of information between assorted applications and services that make up a complex system, providing a uniform user experience for clients. 
+
