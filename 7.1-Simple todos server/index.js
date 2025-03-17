@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 
 // Connect to the MongoDB database using the mongoose.connect() method
-mongoose.connect("mongodb+srv://rajshreeakm:y7Mu9q62OpExae0X@cluster0.zmuo0.mongodb.net/todo-database");
+mongoose.connect("");
 
 // Create a JWT_SECRET variable for the secret key
 const JWT_SECRET = "bhkkkkBurbak";

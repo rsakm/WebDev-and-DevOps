@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const JWT_SECRET = "qwepriyaranjana2018"
 const {UserModel,TodoModel} = require('./todoDb');
 
-mongoose.connect("mongodb+srv://rajshreeakm:y7Mu9q62OpExae0X@cluster0.zmuo0.mongodb.net/todo-database");
+mongoose.connect("");
 
 // // todo-database is the name of the db,if it doesn't exist then automatically a db with this name will be created in the specified cluster
 
