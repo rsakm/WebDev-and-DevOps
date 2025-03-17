@@ -21,13 +21,14 @@ app.post("/signup", async function(req, res) {
         password:z.string().min(3).max(30)
     })
     // const parsedData = requiredBody.parse(req.body);
-    
+
     const parsedDataWithSuccess = requiredBody.safeParse(req.body);
 
     if(!parsedDataWithSuccess.success){
         res.json({
-            message:"Incorrect input format...!"
-        })
+            message:"Incorrect input format...!",
+            error: parsedDataWithSuccess.error
+        });
         return;
     }
     const email = req.body.email;
