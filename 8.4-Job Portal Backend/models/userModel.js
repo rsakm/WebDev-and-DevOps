@@ -48,9 +48,18 @@ userSchema.pre('save', async function(){
     this.password = await bcrypt.hash(this.password, salt);
 });
 
+// // password comparison
+userSchema.methods.comparePassword = async function (userPassword) {
+    const isMatched = await bcrypt.compare(userPassword,this.password);
+    return isMatched;
+}
+
+
 
 // // Authentication middleware
 userSchema.methods.createJWT = function(){
     return jwt.sign({userId:this._id},process.env.JWT_SECRET,{expiresIn:'1d'});
+    console.log("JWT Secret:", process.env.JWT_SECRET);
+
 }
 export default mongoose.model('user', userSchema);
