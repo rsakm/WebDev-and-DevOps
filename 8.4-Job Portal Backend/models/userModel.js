@@ -1,0 +1,50 @@
+import mongoose from "mongoose";
+import validator from 'validator';
+import bcrypt from 'bcryptjs';
+
+
+// // schema
+const userSchema = new mongoose.Schema({
+    name:{
+        type:String,
+        required:[true, "name is required"]
+    },
+    lastName:{
+        type:String,
+    },
+    email:{
+        type:String,
+        required:[true, "Email is required"],
+        unique:true,
+        validate:validator.isEmail
+    },
+    password:{
+        type:String,
+        required:[true, "Password is required"],
+        validate: {
+            validator: function (value) {
+              // Define strong password criteria
+              return validator.isStrongPassword(value, {
+                minLength: 8,
+                minLowercase: 1,
+                minUppercase: 1,
+                minNumbers: 1,
+                minSymbols: 1,
+              });
+            },
+            message: "Password must be at least 8 characters long, contain 1 uppercase, 1 lowercase, 1 number, and 1 symbol."
+        }
+    },
+    location:{
+        type:String,
+        default:"Delhi"
+    }
+},{timestamps:true});
+
+// // middleware for password hashing
+userSchema.pre('save', async function(){
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+});
+
+export default mongoose.model('user', userSchema);
