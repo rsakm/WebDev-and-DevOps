@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import validator from 'validator';
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 
 // // schema
@@ -47,4 +48,9 @@ userSchema.pre('save', async function(){
     this.password = await bcrypt.hash(this.password, salt);
 });
 
+
+// // Authentication middleware
+userSchema.methods.createJWT = function(){
+    return jwt.sign({userId:this._id},process.env.JWT_SECRET,{expiresIn:'1d'});
+}
 export default mongoose.model('user', userSchema);
