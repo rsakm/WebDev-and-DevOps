@@ -1,4 +1,9 @@
+// // api documentation packages
+import swaggerUi from 'swagger-ui-express';
+import swaggerDoc from 'swagger-jsdoc'
+
 import express from "express"
+
 import dotenv from 'dotenv'
 import cors from 'cors';
 import morgan from "morgan";
@@ -12,6 +17,12 @@ import errorMiddleware from "./middlewares/errorMiddleware.js";
 import userRoutes from './routes/userRoutes.js'
 import jobsRoutes from './routes/jobsRoute.js'
 
+// // security packages
+import helmet from 'helmet';
+import xssClean from 'xss-clean';
+import mongoSanitize from 'express-mongo-sanitize'
+import { version } from 'mongoose';
+
 // // config environment variable
 dotenv.config();
 
@@ -19,9 +30,34 @@ dotenv.config();
 // // mongodb connection
 connectDb();
 
+// // swagger api config
+const options = {
+   definition:{
+    openapi: "3.0.0",
+    info:{
+        title:"Job Portal Application",
+        version:'1.0.0',
+        description:"Node JS, Express Js, MongoDB"
+    },
+    servers:[
+        {
+            url:"http://localhost:8080/api/v1"
+        }
+    ]
+   },
+   apis:['./routes/*.js'],
+};
+
+const spec = swaggerDoc(options)
 
 // // rest object
 const app = express();
+
+app.use(helmet());
+app.use(xssClean());
+app.use(mongoSanitize())
+
+
 app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
@@ -32,6 +68,9 @@ app.use('/api/v1/test',testRoutes);
 app.use('/api/v1/auth',authRoutes);
 app.use('/api/v1/user',userRoutes);
 app.use('/api/v1/job',jobsRoutes);
+
+// // Home route
+app.use('/api-doc',swaggerUi.serve, swaggerUi.setup(spec));
 
 // // validation middleware
 app.use(errorMiddleware);
