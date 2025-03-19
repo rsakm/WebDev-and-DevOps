@@ -12,7 +12,7 @@ License
 Project Overview
 The Job Portal Backend API serves as the backend for the Job Portal web application. It provides the necessary endpoints for job seekers and employers to register, log in, and manage job postings. The API is built with a focus on security, using user authentication and input validation techniques.
 
-This backend is deployed on Render and is accessible via this link.
+This backend is deployed on Render and is accessible via this link. https://job-portal-backend-website.onrender.com
 
 Features
 User Authentication: Register, login, and manage users.
@@ -76,7 +76,7 @@ npm start
 The server will start running at http://localhost:8080.
 
 Deployment
-This backend API is deployed on Render and can be accessed via the following link:
+This backend API is deployed on Render and can be accessed via the following link: https://job-portal-backend-website.onrender.com
 Job Portal Backend
 
 Deployment Steps on Render:
