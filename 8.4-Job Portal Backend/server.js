@@ -39,11 +39,12 @@ const options = {
         version:'1.0.0',
         description:"Node JS, Express Js, MongoDB"
     },
-    servers:[
+    servers: [
         {
-            url:"http://localhost:8080/api/v1"
+          url: "https://job-portal-backend-website.onrender.com"
         }
-    ]
+      ]
+      
    },
    apis:['./routes/*.js'],
 };
@@ -70,6 +71,12 @@ app.use('/api/v1/user',userRoutes);
 app.use('/api/v1/job',jobsRoutes);
 
 // // Home route
+// Home route to redirect or show a message
+app.get('/', (req, res) => {
+    res.redirect('/api-doc');
+  });
+  
+
 app.use('/api-doc',swaggerUi.serve, swaggerUi.setup(spec));
 
 // // validation middleware
@@ -78,5 +85,15 @@ app.use(errorMiddleware);
 const port = process.env.PORT || 8080
 
 app.listen(port,()=>{
-    // console.log(`Server running at PORT ${port}`);
+    console.log(`Server running at PORT ${port}`);
 })
+
+
+// Handle unknown routes
+app.use((req, res) => {
+    res.status(404).json({
+      success: false,
+      message: 'Route not found'
+    });
+  });
+  
