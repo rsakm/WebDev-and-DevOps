@@ -1,17 +1,30 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 // // conditional rendering --> when we want to render something or sometimes we don't 
 //  // Based on a certain condition, render a component
 function App() {
-  let timerVariable = true;
+  // let timerVariable = true;
+
+  let [timerValue, setTimerValue] = useState(true);
+
+  let toggleTimer = useEffect(function (){
+    setInterval(function (){
+      setTimerValue((prev) => !prev)
+    },5000)
+
+    return ()=>clearInterval(toggleTimer)
+  },[]);
   
   return (
     <>
+    <p>Hi</p>
      {/* <Counter></Counter> */}
-     {timerVariable ? <Timer></Timer> : null}
+     {timerValue ? <Timer></Timer> : null}
+     {/* {timerValue && <Timer></Timer>} */}
+
+     <div style={{visibility: timerValue ? 'hidden' : 'visible'}}><Timer/></div>
+     <p>Hello</p>
     </>
   )
 }
@@ -63,10 +76,16 @@ console.log("Inside counter component");
 
 useEffect(()=>{
 console.log("on mount");
-  setInterval(function() {
+  let clock = setInterval(function() {
     settime((time)=>time+1)
   }, 1000);
   console.log("Mounted");
+  
+
+  return function(){
+    console.log("On un-mount");
+    clearInterval(clock);  //// unmounting/cleanup
+  }
 },[])  // // dependency array
 
 
