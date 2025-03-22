@@ -46,13 +46,15 @@ function Timer(){
 
 const [time, settime] = useState(0)
 
+console.log("Inside counter component");
+
 // setInterval(() => {
 //   settime(time+1)
   
 // }, 1000);
 
 /*
-// Hooking into the lifecycle events of React : Rendering / mounting, Re-rendering, unmounting  ---> useEffect
+// Hooking into the lifecycle events of React : mounting, Re-rendering, unmounting  ---> useEffect
 
 */
 
@@ -61,7 +63,7 @@ useEffect(()=>{
   setInterval(function() {
     settime((time)=>time+1)
   }, 1000);
-  
+  console.log("Mounted");
 },[])
 
   return <>
