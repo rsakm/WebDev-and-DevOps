@@ -59,13 +59,15 @@ console.log("Inside counter component");
 */
 
 useEffect(()=>{
-
+console.log("on mount");
   setInterval(function() {
     settime((time)=>time+1)
   }, 1000);
   console.log("Mounted");
-},[])
+},[])  // // dependency array
 
+
+// // dependency array, cleanup & fetch inside useEffect
   return <>
   
     <h1>{time}</h1>
