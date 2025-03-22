@@ -3,6 +3,7 @@ import './App.css'
 
 // // conditional rendering --> when we want to render something or sometimes we don't 
 //  // Based on a certain condition, render a component
+
 function App() {
   // let timerVariable = true;
 
@@ -23,40 +24,11 @@ function App() {
      {timerValue ? <Timer></Timer> : null}
      {/* {timerValue && <Timer></Timer>} */}
 
-     <div style={{visibility: timerValue ? 'hidden' : 'visible'}}><Timer/></div>
+     <div style={{visibility: timerValue ? 'visible' : 'hidden'}}><Timer/></div>
      <p>Hello</p>
     </>
   )
 }
-
-
-// function Counter(){
-//   // let count = 0
-
-//   const [count, setCount] = useState(0)
-
-
-//   function increaseCount(){
-//     //  count++;
-//     setCount(count+1);
-//     //  console.log(count);
-//   }
-
-//   function decreaseCount(){
-//     setCount(count-1)
-//   }
-
-//   function resetCount(){
-//     setCount(0)
-//   }
-//   return <div>
-//     <h1 id='text'>{count}</h1>
-//     <button onClick={increaseCount}>Increase Counter</button>
-//     <button onClick={decreaseCount}>Decrease Counter</button>
-//     <button onClick={resetCount}>Reset</button>
-//   </div>
-// }
-
 
 function Timer(){
 
