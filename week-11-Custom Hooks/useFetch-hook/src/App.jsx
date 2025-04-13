@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useFetch } from './hooks/useFetch'
 function App() {
   const [currPost, setCurrPost]= useState(1);
-  const [posts, loading] = useFetch(`https://jsonplaceholder.typicode.com/posts/${currPost}`);
+  const [posts, loading, error] = useFetch(`https://jsonplaceholder.typicode.com/posts/${currPost}`, 10);
 
   // return (
   //   <>
