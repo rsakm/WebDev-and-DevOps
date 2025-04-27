@@ -71,3 +71,4 @@ delayedCall(() => {
 
 
 const fn = ()=>console.log("Hi Rajshree here!");
+fn();
