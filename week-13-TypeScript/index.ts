@@ -68,3 +68,6 @@ function delayedCall(fn : () => void){   /// Whenever u give a function as an ar
 delayedCall(() => {
     console.log("Hello");
 });
+
+
+const fn = ()=>console.log("Hi Rajshree here!");

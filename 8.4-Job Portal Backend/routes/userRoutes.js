@@ -1,6 +1,6 @@
 import express from 'express';
 import userAuth from '../middlewares/authMiddleware.js';
-import { updateUserController } from '../controllers/userController.js';
+import { getUserController, updateUserController } from '../controllers/userController.js';
 
 const router = express.Router();
 
@@ -51,6 +51,10 @@ const router = express.Router();
  *   name: Users
  *   description: User-related APIs (update, get, etc.)
  */
+
+// // get user
+
+router.post('/getUser',userAuth,getUserController)
 
 /**
  * @swagger
