@@ -104,9 +104,13 @@ tsc --watch
 ❗ Common Errors and Troubleshooting
 
 Issue                    ||               	Solution
+
 tsc:command not found	 ||                 Ensure TypeScript is installed globally. Try reinstalling with npm install -g typescript.
+
 Cannot find module errors||                 Make sure you have proper module resolution settings in tsconfig.json.
+
 Type errors	             ||                 Check your variable types and ensure your TypeScript syntax is correct.
+
 
 📚 Helpful Resources
 TypeScript Official Documentation
