@@ -1,4 +1,8 @@
 # TypeScript Project Starter
+<div align="center">
+  <img src="https://cdn.worldvectorlogo.com/logos/typescript.svg" alt="TypeScript Logo" width="150"/>
+</div>
+
 
 A simple boilerplate to start a TypeScript project that compiles `.ts` files from the `src/` folder into JavaScript in the `dist/` folder.
 
