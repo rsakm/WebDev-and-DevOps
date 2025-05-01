@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+
     "test": "echo \"Error: no test specified\" && exit 1",
-     "build": "tsc",
-  "start": "node dist/index.js",
-  "startImplementInterface": "node dist/implementInterface.js",
-  "startType": "node dist/type.js"
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "startImplementInterface": "node dist/implementInterface.js",
+    "startType": "node dist/type.js",
+    "startAssignment": "node dist/assignment.js",
+    "startArray":"node dist/arrays.js"
+
   },
   "keywords": [],
   "author": "",
