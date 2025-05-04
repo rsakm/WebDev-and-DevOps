@@ -6,10 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
      "build": "tsc",
-  "start": "node dist/index.js",
-  "startPartial": "node dist/partial.js",
-  "startReadOnly": "node dist/readonly.js",
-  "startrecord": "node dist/recordAndMap.js"
+  "index": "node dist/index.js",
+  "partial": "node dist/partial.js",
+  "readOnly": "node dist/readonly.js",
+  "record": "node dist/recordAndMap.js",
+  "exclude": "node dist/exclude.js"
   },
   "keywords": [],
   "author": "",

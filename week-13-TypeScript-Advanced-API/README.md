@@ -120,7 +120,7 @@ Hello, Rajshree!
 ```json
 "scripts": {
   "build": "tsc",
-  "start": "node dist/index.js"
+  "index": "node dist/index.js"
 }
 ```
 
@@ -128,7 +128,7 @@ Now you can use:
 
 ```bash
 npm run build
-npm start
+npm run index
 ```
 
 ---
