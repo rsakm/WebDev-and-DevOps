@@ -8,7 +8,8 @@
      "build": "tsc",
   "start": "node dist/index.js",
   "startPartial": "node dist/partial.js",
-  "startReadOnly": "node dist/readonly.js"
+  "startReadOnly": "node dist/readonly.js",
+  "startrecord": "node dist/recordAndMap.js"
   },
   "keywords": [],
   "author": "",
