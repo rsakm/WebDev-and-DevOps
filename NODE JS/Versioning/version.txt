@@ -1,0 +1,15 @@
+// Version
+
+5.1.0
+
+
+1st part --- 5  :----> Major release  (Major / Breaking update)
+2nd part --- 1  :---> Recommended bug fix (Security fix)    
+
+3rd part ---- 0      : --> Minor fixes (Optional update)
+
+
+^5.1.0   : ^ :--> Install all Recommended and minor fixes automatically
+
+~5.1.0   : (No updates in security fix (2nd part))
+i.e 5.1.0    ---> 5.2.0  (No)
