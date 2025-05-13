@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 
-// //Sync
+// //Sync ..... Blocking Request
 fs.writeFileSync('test.txt', 'Hey There');
 
 
@@ -11,7 +11,7 @@ fs.writeFileSync('test.txt', 'Hey There');
 // });
 
 
-//Read File Sync
+//Read File Sync ...... Non-Blocking Request
 fs.readFile('test.txt', 'utf8', (err, data) => {
     console.log(data);
 });
