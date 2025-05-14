@@ -5,10 +5,10 @@ const server = http.createServer((req, res) => {
 
     const log = `${Date.now()}: ${req.method} ${req.url}`;
 
-    // if (req.url === '/') {
-        // res.write('Hello World');
-        // res.end();
-    // }
+    if (req.url === '/') {
+        res.write('Hello World');
+        res.end();
+    }
     
 fs.appendFile('log.txt', log + '\n', (err) => {
     switch(req.url){
